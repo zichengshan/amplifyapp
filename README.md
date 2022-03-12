@@ -1,8 +1,77 @@
-# Notes
-Better to install 1.2.25 version of Amplify libraries
-```npm install @aws-amplify/ui-react@1.2.25```
+# README
+## Create a Notes Application using AWS Amplify
+1. Added authentication to your app allowing users to sign up, sign in, and manage their account
+2. Scalable GraphQL API configured with an Amazon DynamoDB database allowing users to create and delete notes
+3. Added file storage using Amazon S3 allowing users to upload images and view them in their app
+### DEMO
+![](../../../../../Desktop/Screen Recording 2022-03-12 at 3.28.47 PM.mov-high.gif)
+### PART1
+**Create a React application and deploy it to the cloud using AWS Amplify web hosting service**
+
+**AWS Amplify** provides a Git-based CI/CD workflow for building, deploying, and hosting single page web applications or static sites with serverless backends.
+#### Steps:
+1. Create a React application by using command ```npx create-react-app amplifyapp```
+2. Initialize GitHub repository, initialize git and push the application to the new GitHub
+3. Connect the GitHub repository to the AWS Amplify service![](../../../../../../../var/folders/ht/rr4_2htj1fv0t_61wrg1wyfh0000gn/T/TemporaryItems/NSIRD_screencaptureui_jcGSje/Screen Shot 2022-03-12 at 1.49.48 PM.png)
 
 
+
+### PART2
+**install and configure Amplify CLI**
+
+**Amplify CLI** is a unified toolchain to create, manage, and remove AWS services directly from our terminal.
+#### Steps:
+1. Install Amplify CLI by using command ```npm install -g @aws-amplify/cli```
+2. Configure Amplify CLI by using command ```amplify configure``` and follow this [tutorial video](https://www.youtube.com/watch?v=fWbM5DLh25U). Amazon IAM(Identity and Access Management) enables us to manage users permissions in AWS.
+3. Initialize the app (Deploy a back end and initialize the backend environmental locally)
+
+### PART3
+**Use Amplify CLI and libraries to configure and add authentication to the app**
+#### Steps:
+1. Install Amplify libraries by using the command ```npm install aws-amplify @aws-amplify/ui-react```
+   1. aws-amplify library contains all the client-side APIs for interacting with the various AWS services
+   2. @aws-amplify/ui-react library contains framework-specific UI components.
+2. Create the authentication service by using ```amplify add auth```
+3. Deploy the authentication service by using ```amplify push --y```
+4. Configure the React project with Amplify resources, add imports in index.js
+5. Add the authentication flow in App.js by using withAuthenticator component. This component will scaffold an entire user authentication flow allowing users to sign up, sign in and reset their password, and confirm sign in for multifactor authentication(MFA)
+6. Set up CI/CD if the front end and backend.
+
+### PART4
+**Use Amplify CLI and libraries to configure and add a GraphQL API to app**
+**GraphQL** API leverages AWS AppSync (a managed GraphQL service) which is backed by **Amazon DynamoDB** (a NoSQL database)
+#### Steps:
+1. Create a GraphQL API and database ```amplify add api```
+2. Open the schema.graphql and add the following schema: 
+    ```aidl
+    type Note @model {
+      id: ID!
+      name: String!
+      description: String
+    }
+    ```
+3. Deploy API ```amplify push --y```. This will do three things: 
+   1. Create the AppSync API
+   2. Create a DynamoDB table
+   3. Create the local GraphQL operations in a folder located at src/graphql that can be used to query the api
+4. Write frond-end code to interact with the API. Saved in src/App.js
+
+### PART5
+**Add storage and the ability to associate an image with the notes in the app**
+Use Amplify CLI and libraries to create a storage service leveraging **Amazon S3**.
+#### Steps:
+1. Create the storage service ```amplify add storage```
+2. Update the GraphQL schema, add one line: ```image: String``` in schema.graphql
+3. Deploy storage service and API updates ```amplify push --y```
+4. Update React app in App.js file
+   1. Add storage class ```import { API, Storage} from 'aws-amplify'```
+   2. Create a new onChange function
+   3. Update the fetchNotes function to fetch an image
+   4. Update the createNote function to add the image to the local image array
+   5. Add additional input to the form in the return block
+   6. Render an image if it exists
+
+--------------
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

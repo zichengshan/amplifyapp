@@ -62,16 +62,18 @@ function App() {
 
   return (
     <div className="App">
-      <h1>My Notes App</h1>
+      <h1>Notes App</h1>
       <input
         onChange={e => setFormData({ ...formData, 'name': e.target.value})}
         placeholder="Note name"
         value={formData.name}
+        style = {{height: 30}}
       />
       <input
         onChange={e => setFormData({ ...formData, 'description': e.target.value})}
         placeholder="Note description"
         value={formData.description}
+        style={{width: 400, height: 30}}
       />
       <input
         type="file"
