@@ -4,7 +4,8 @@
 2. Scalable GraphQL API configured with an Amazon DynamoDB database allowing users to create and delete notes
 3. Added file storage using Amazon S3 allowing users to upload images and view them in their app
 ### DEMO
-![](../../../../../Desktop/Screen Recording 2022-03-12 at 3.28.47 PM.mov-high.gif)
+![Screen Recording 2022-03-12 at 3 28 47 PM mov-high](https://user-images.githubusercontent.com/61951792/158038840-0f3ff922-e177-431b-9e07-64d45bdb934f.gif)
+
 ### PART1
 **Create a React application and deploy it to the cloud using AWS Amplify web hosting service**
 
@@ -12,9 +13,7 @@
 #### Steps:
 1. Create a React application by using command ```npx create-react-app amplifyapp```
 2. Initialize GitHub repository, initialize git and push the application to the new GitHub
-3. Connect the GitHub repository to the AWS Amplify service![](../../../../../../../var/folders/ht/rr4_2htj1fv0t_61wrg1wyfh0000gn/T/TemporaryItems/NSIRD_screencaptureui_jcGSje/Screen Shot 2022-03-12 at 1.49.48 PM.png)
-
-
+3. Connect the GitHub repository to the AWS Amplify service!<img width="1236" alt="Screen Shot 2022-03-12 at 3 45 01 PM" src="https://user-images.githubusercontent.com/61951792/158038939-4679760e-dbbc-4dc2-9113-d79b00dd6b3c.png">
 
 ### PART2
 **install and configure Amplify CLI**
