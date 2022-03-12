@@ -1,3 +1,8 @@
+# Notes
+Better to install 1.2.25 version of Amplify libraries
+```npm install @aws-amplify/ui-react@1.2.25```
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
