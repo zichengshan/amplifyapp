@@ -15,6 +15,7 @@ function App() {
     fetchNotes();
   }, []);
 
+  // uses the API class to send a query to the GraphQL API and retrieve a list of notes.
   async function fetchNotes() {
     const apiData = await API.graphql({ query: listNotes });
     setNotes(apiData.data.listNotes.items);
@@ -27,6 +28,8 @@ function App() {
     setFormData(initialFormState);
   }
 
+  // Like createNote, this function is sending a GraphQL mutation along with some variables, 
+  // but instead of creating a note we are deleting a note.
   async function deleteNote({ id }) {
     const newNotesArray = notes.filter(note => note.id !== id);
     setNotes(newNotesArray);
