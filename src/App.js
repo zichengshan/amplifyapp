@@ -89,7 +89,7 @@ function App() {
               <button onClick={() => deleteNote(note)}>Delete note</button>
               {/* When mapping over the notes array, render an image if it exists */}
               {
-                note.image && <img src={note.image} style={{width: 400}} />
+                note.image && <img src={note.image} alt="my props" style={{width: 400}} />
               }
             </div>
           ))
